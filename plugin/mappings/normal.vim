@@ -10,7 +10,7 @@ nmap Q q
 nnoremap K <nop>
 
 " Press minus to open NERDTree
-nnoremap <silent> - :silent edit <C-R>=empty(expand('%')) ? '.' : expand('%:p:h')<CR><CR>
+nnoremap <silent> - :silent edit <C-R>=empty(expand('%')) ? '.' : fnameescape(expand('%:p:h'))<CR><CR>
 
 " Scroll the viewport faster
 nnoremap <C-e> 3<C-e>

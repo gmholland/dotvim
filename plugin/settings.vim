@@ -12,6 +12,8 @@ set wmh=0 						" small minimum window height to aid splitting lots of files
 
 set textwidth=80 				" automatically hard wrap at 80 columns
 
+let g:tex_flavor='latex'		" detect *.tex files as latex
+
 " - Whitespace and indentation - {{{
 set autoindent 					" maintain indent of current line
 filetype plugin indent on 		" use smart indentation

@@ -58,7 +58,7 @@ set history=1000 	" keep a longer history for commands and search patterns
 
 " Highlight up to 255 columns beyond 'textwidth'
 if exists('+colorcolumn')
-	let &l:colorcolumn='+' . join(range(0, 254), ',+')
+	let &colorcolumn='+' . join(range(0, 254), ',+')
 endif
 
 set t_Co=16 				" 16 colour vim

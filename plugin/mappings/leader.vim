@@ -15,7 +15,7 @@ nnoremap <Leader>cd :cd %:p:h<CR>
 map <Leader>i :pyf ~/Downloads/Applications/llvm/tools/clang/tools/clang-format/clang-format.py<CR>
 
 " <Leader>d -- Open the NERDTree directory browser (mnemonic: directory)
-nnoremap <Leader>d :NERDTreeFind<CR>
+nnoremap <Leader>d :NERDTreeToggle<CR>
 
 " <Leader>l -- Toggle the taglist (mnemonic: label)
 nnoremap <Leader>l :TagbarToggle<CR>

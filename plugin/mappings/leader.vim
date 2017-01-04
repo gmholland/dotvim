@@ -12,7 +12,7 @@ nnoremap <Leader>p :echo expand('%')<CR>
 nnoremap <Leader>cd :cd %:p:h<CR>
 
 " <Leader>i -- Run clang-format (mnemonic: indentation)
-map <Leader>i :pyf ~/Downloads/Applications/llvm/tools/clang/tools/clang-format/clang-format.py<CR>
+map <Leader>i :pyf ~/.vim/tools/clang-format.py<CR>
 
 " <Leader>d -- Open the NERDTree directory browser (mnemonic: directory)
 nnoremap <Leader>d :NERDTreeToggle<CR>

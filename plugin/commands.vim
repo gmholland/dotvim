@@ -45,6 +45,25 @@ function! s:SummarizeTabs()
 	endtry
 endfunction
 
+" :SetStyle - Set coding style
+"
+" Currently supported styles:
+" - linux
+command! -nargs=* SetStyle call s:SetStyle()
+function! s:SetStyle()
+	let l:style = input('set coding style = ')
+	if l:style ==? 'linux'
+		" Linux coding style
+		setlocal ts=8 sw=8 sts=8 noet
+		if has('cindent')
+			setlocal cindent
+			setlocal cinoptions=:0,l1,t0,g0,(0
+		endif
+		let g:clang_format_style="{BasedOnStyle: llvm, IndentWidth: 8, UseTab: Always, BreakBeforeBraces: Linux, AllowShortIfStatementsOnASingleLine: false, IndentCaseLabels: false}"
+	endif
+endfunction
+
+
 function! s:Scratch (command, ...)
 	redir => lines
 	let saveMore = &more

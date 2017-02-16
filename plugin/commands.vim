@@ -49,9 +49,13 @@ endfunction
 "
 " Currently supported styles:
 " - linux
-command! -nargs=* SetStyle call s:SetStyle()
-function! s:SetStyle()
-	let l:style = input('set coding style = ')
+command! -nargs=? SetStyle call s:SetStyle(<f-args>)
+function! s:SetStyle(...)
+	if a:0 > 0
+		let l:style = a:1
+	else
+		let l:style = input('set coding style (options: linux) = ')
+	endif
 	if l:style ==? 'linux'
 		" Linux coding style
 		setlocal ts=8 sw=8 sts=8 noet

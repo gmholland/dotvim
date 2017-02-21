@@ -63,6 +63,15 @@ function! s:SetStyle(...)
 			setlocal cindent
 			setlocal cinoptions=:0,l1,t0,g0,(0
 		endif
+		if has('cscope')
+			if $LINUX_SRCDIR != ""
+				cscope add $LINUX_SRCDIR $LINUX_SRCDIR
+			else
+				echohl WarningMsg
+				echo "LINUX_SRCDIR environment variable not set, not adding cscope connection"
+				echohl None
+			endif
+		endif
 		let g:clang_format_style="{BasedOnStyle: llvm, IndentWidth: 8, UseTab: Always, BreakBeforeBraces: Linux, AllowShortIfStatementsOnASingleLine: false, IndentCaseLabels: false}"
 	endif
 endfunction

@@ -58,14 +58,15 @@ function! s:SetStyle(...)
 	endif
 	if l:style ==? 'linux'
 		" Linux coding style
-		setlocal ts=8 sw=8 sts=8 noet
+		set ts=8 sw=8 sts=8 noet
 		if has('cindent')
-			setlocal cindent
-			setlocal cinoptions=:0,l1,t0,g0,(0
+			set cindent
+			set cinoptions=:0,l1,t0,g0,(0
 		endif
-		if has('cscope')
+		if has('cscope') && !exists("g:setstyle_linux_cscope_loaded")
 			if $LINUX_SRCDIR != ""
 				cscope add $LINUX_SRCDIR $LINUX_SRCDIR
+				let g:setstyle_linux_cscope_loaded = 1
 			else
 				echohl WarningMsg
 				echo "LINUX_SRCDIR environment variable not set, not adding cscope connection"
@@ -73,6 +74,11 @@ function! s:SetStyle(...)
 			endif
 		endif
 		let g:clang_format_style="{BasedOnStyle: llvm, IndentWidth: 8, UseTab: Always, BreakBeforeBraces: Linux, AllowShortIfStatementsOnASingleLine: false, IndentCaseLabels: false}"
+		let g:setstyle_style = "linux"
+	else
+		echohl ErrorMsg
+		echo l:style . " is not a valid style"
+		echohl None
 	endif
 endfunction
 

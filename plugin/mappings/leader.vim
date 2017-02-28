@@ -3,10 +3,6 @@
 " <Leader><Leader> -- Open last buffer.
 nnoremap <Leader><Leader> <C-^>
 
-" <Leader>p -- Show the path of the current file (mnemonic: path; useful when
-" you have a lot of splits and the status line gets truncated).
-nnoremap <Leader>p :echo expand('%')<CR>
-
 " <Leader>cd -- Change working directory to the directory of the file being
 " edited. (mnemonic: change directory)
 nnoremap <Leader>cd :cd %:p:h<CR>

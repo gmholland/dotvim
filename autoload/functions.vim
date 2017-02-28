@@ -33,3 +33,20 @@ function! functions#preserve(command)
 	let @/=_s
 	call cursor(l, c)
 endfunction
+
+" Preview markdown in browser
+function! functions#markdown_preview() abort
+	let curr_file = expand('%:t')
+	let curr_file_path = expand('%:p')
+	let html_file = curr_file . '.html'
+	let html_file_path = '/tmp/' . html_file
+	
+	" Generate html from markdown
+    call system('grip "' . curr_file_path . '" --export ' . html_file_path . ' --title ' . html_file)
+	
+	" Open in browser if necessary
+	let browser_wid = system('xdotool search --name ' . html_file)
+	if !browser_wid
+		call system('xdg-open ' . html_file_path)
+	endif
+endfunction

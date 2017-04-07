@@ -63,6 +63,7 @@ function! s:SetStyle(...)
 			set cindent
 			set cinoptions=:0,l1,t0,g0,(0
 		endif
+		let g:c_syntax_for_h = 1
 		if has('cscope') && !exists("g:setstyle_linux_cscope_loaded")
 			if $LINUX_SRCDIR != ""
 				cscope add $LINUX_SRCDIR $LINUX_SRCDIR

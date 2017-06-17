@@ -64,15 +64,16 @@ function! s:SetStyle(...)
 			set cinoptions=:0,l1,t0,g0,(0
 		endif
 		let g:c_syntax_for_h = 1
-		if has('cscope') && !exists("g:setstyle_linux_cscope_loaded")
-			if $LINUX_SRCDIR != ""
+		if $LINUX_SRCDIR != ""
+			if has('cscope') && !exists("g:setstyle_linux_cscope_loaded")
 				cscope add $LINUX_SRCDIR $LINUX_SRCDIR
 				let g:setstyle_linux_cscope_loaded = 1
-			else
-				echohl WarningMsg
-				echo "LINUX_SRCDIR environment variable not set, not adding cscope connection"
-				echohl None
 			endif
+			set path+=$LINUX_SRCDIR/include
+		else
+			echohl WarningMsg
+			echo "LINUX_SRCDIR environment variable not set, not adding cscope connection"
+			echohl None
 		endif
 		let g:clang_format_style="{BasedOnStyle: llvm, IndentWidth: 8, UseTab: Always, BreakBeforeBraces: Linux, AllowShortIfStatementsOnASingleLine: false, IndentCaseLabels: false}"
 		let g:setstyle_style = "linux"

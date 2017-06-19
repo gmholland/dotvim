@@ -1,6 +1,8 @@
 function! autocmds#attempt_select_last_file()
-	let l:previous=expand('#:t')
-	if l:previous != ''
-		call search('\v<' . l:previous . '>')
-	endif
+  let l:previous=expand('#:t')
+  if l:previous != ''
+    call search('\v<' . l:previous . '>')
+  endif
 endfunction
+
+" vim:set ft=vim et sw=2:

@@ -10,8 +10,10 @@ let g:NERDTreeMouseMode=2
 
 " When opening the NERDTree select the file we are coming from
 if has('autocmd')
-	augroup WincentNERDTree
-		autocmd!
-		autocmd User NERDTreeInit call autocmds#attempt_select_last_file()
-	augroup END
+  augroup WincentNERDTree
+    autocmd!
+    autocmd User NERDTreeInit call autocmds#attempt_select_last_file()
+  augroup END
 endif
+
+" vim:set ft=vim et sw=2:

@@ -2,7 +2,7 @@
 
 " Use <ESC> to exit out of command-t split
 if &term =~# 'xterm'
-	let g:CommandTCancelMap=['<ESC>', '<C-c>']
+  let g:CommandTCancelMap=['<ESC>', '<C-c>']
 endif
 
 let g:CommandTMaxCachedDirectories=10
@@ -22,3 +22,5 @@ nmap <unique> <LocalLeader>l <Plug>(CommandTLine)
 nmap <unique> <LocalLeader>s <Plug>(CommandTSearch)
 nmap <unique> <LocalLeader>t <Plug>(CommandTTag)
 " - }}}
+
+" vim:set ft=vim et sw=2:

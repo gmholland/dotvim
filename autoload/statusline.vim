@@ -1,10 +1,13 @@
 scriptencoding utf-8
 
-function! statusline#gutterpadding() abort
-  let l:minwidth=2
-  let l:gutterWidth=max([strlen(line('$')) + 1, &numberwidth, l:minwidth])
-  let l:padding=repeat(' ', l:gutterWidth - 1)
-  return l:padding
+function! statusline#branch() abort
+  if exists('*fugitive#head')
+    let l:branchname = fugitive#head(7)
+    if strlen(l:branchname) > 0
+      return '   '.l:branchname.' '
+    endif
+  endif
+  return ""
 endfunction
 
 function! statusline#fileprefix() abort
@@ -17,56 +20,12 @@ function! statusline#fileprefix() abort
   endif
 endfunction
 
-function! statusline#ft() abort
-  if strlen(&ft)
-    return ',' . &ft
-  else
-    return ''
-  endif
-endfunction
-
 function! statusline#fenc() abort
   if strlen(&fenc) && &fenc !=# 'utf-8'
-    return ',' . &fenc
+    return &fenc . ' '
   else
     return ''
   endif
 endfunction
 
-function! statusline#lhs() abort
-  let l:line=statusline#gutterpadding()
-  let l:line.=&modified ? '+ ' : '  '
-  return l:line
-endfunction
-
-function! statusline#rhs() abort
-  let l:rhs=' '
-  if winwidth(0) > 80
-    let l:column=virtcol('.')
-    let l:width=virtcol('$')
-    let l:line=line('.')
-    let l:height=line('$')
-
-    " Add padding to stop rhs from changing too much as we move the cursor.
-    let l:padding=len(l:height) - len(l:line)
-    if (l:padding)
-      let l:rhs.=repeat(' ', l:padding)
-    endif
-
-    let l:rhs.='l '
-    let l:rhs.=l:line
-    let l:rhs.=' c '
-    let l:rhs.=l:column
-    let l:rhs.=' '
-
-    " Add padding to stop rhs from changing too much as we move the cursor.
-    if len(l:column) < 2
-      let l:rhs.=' '
-    endif
-    if len(l:width) < 2
-      let l:rhs.=' '
-    endif
-  endif
-  return l:rhs
-endfunction
 " vim:set ft=vim et ts=2 sw=2 sts=2:

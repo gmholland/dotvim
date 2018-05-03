@@ -4,8 +4,8 @@ setlocal softtabstop=2
 setlocal shiftwidth=2
 setlocal expandtab
 if has('cindent')
-  " indent according to LLVM style guide
-  setlocal cinoptions=:0,g0,(0,Ws,l1
+  " indent according to geosoft style guide
+  setlocal cinoptions=(0,l1,N-s
 endif
 
 " Folding

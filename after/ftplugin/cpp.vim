@@ -5,7 +5,7 @@ setlocal shiftwidth=2
 setlocal expandtab
 if has('cindent')
   " indent according to geosoft style guide
-  setlocal cinoptions=(0,l1,N-s
+  setlocal cinoptions=(0,l1,N-s,g0
 endif
 
 " Folding

@@ -2,6 +2,7 @@
 function! functions#plaintext() abort
   setlocal nolist
   setlocal spell
+  setlocal spelllang=en_ca
   setlocal textwidth=0
   setlocal wrap
   setlocal wrapmargin=0

@@ -1,7 +1,9 @@
 let g:ColorColumnBlacklist = ['diff', 'undotree', 'nerdtree', 'qf']
 let g:CursorlineBlacklist = ['command-t']
 
-function! autocmds#attempt_select_last_file()
+" FIXME this function sometimes fails on files containing uncommon characters
+" such as '~'
+function! autocmds#attempt_select_last_file() abort
   let l:previous=expand('#:t')
   if l:previous != ''
     call search('\v<' . l:previous . '>')

@@ -1,0 +1,80 @@
+priority -50
+
+extends c
+
+# We want to overwrite everything in parent filetype
+priority -49
+
+snippet main "main(argc, argv)"
+int main(int argc, char* argv[])
+{
+	${VISUAL}$0
+	return 0;
+}
+endsnippet
+
+snippet mainn "main()"
+int main()
+{
+	${VISUAL}$0
+	return 0;
+}
+endsnippet
+
+snippet once "Header guard"
+#ifndef ${1:`!p
+if not snip.c:
+	import string
+	snip.rv = re.sub(r'[^A-Za-z0-9]+','_', snip.fn).upper()
+else:
+	snip.rv = snip.c`}
+#define $1
+
+${VISUAL}$0
+
+#endif // $1
+endsnippet
+
+snippet class "class (simple)"
+class ${1:`!p snip.rv = snip.basename or "name"`}
+{
+public:
+	$0
+
+private:
+	
+};
+endsnippet
+
+snippet classdfl "class (w. default members)"
+class ${1:`!p snip.rv = snip.basename or "name"`}
+{
+public:
+	$1();
+	$1(const $1& src);
+	$1($1&& src) noexcept;
+	~$1();
+
+	$1& operator=(const $1& rhs);
+	$1& operator=($1&& rhs) noexcept;
+
+private:
+	$0
+};
+endsnippet
+
+snippet ns "namespace" b
+namespace ${1:name} {
+
+${VISUAL}$0
+
+} // namespace $1
+endsnippet
+
+snippet try "try catch block"
+try {
+	$0
+} catch (const ${1:std::exception}& ${2:e}) {
+	
+}
+endsnippet

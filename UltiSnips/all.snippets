@@ -1,0 +1,12 @@
+# This file contains snippets that are always defined.
+
+# slightly lower priority than everything else since specialized versions should
+# overwrite. The user needs to adjust their priority in their snippets to ~-55
+# so that other filetypes will still overwrite.
+priority -60
+
+snippet date "Month DD, YYYY" w
+`!v strftime("%b %d, %Y")`
+endsnippet
+
+# vim:ft=snippets

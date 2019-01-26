@@ -5,7 +5,7 @@ extends c
 # We want to overwrite everything in parent filetype
 priority -49
 
-snippet main "main(argc, argv)"
+snippet main "main(argc, argv)" b
 int main(int argc, char* argv[])
 {
 	${VISUAL}$0
@@ -13,7 +13,7 @@ int main(int argc, char* argv[])
 }
 endsnippet
 
-snippet mainn "main()"
+snippet mainn "main()" b
 int main()
 {
 	${VISUAL}$0
@@ -21,7 +21,7 @@ int main()
 }
 endsnippet
 
-snippet once "Header guard"
+snippet once "Header guard" b
 #ifndef ${1:`!p
 if not snip.c:
 	import string
@@ -46,17 +46,18 @@ private:
 };
 endsnippet
 
-snippet classdfl "class (w. default members)"
+snippet classd "class (w. default members)"
 class ${1:`!p snip.rv = snip.basename or "name"`}
 {
 public:
 	$1();
 	$1(const $1& src);
 	$1($1&& src) noexcept;
-	~$1();
 
 	$1& operator=(const $1& rhs);
 	$1& operator=($1&& rhs) noexcept;
+
+	~$1();
 
 private:
 	$0
@@ -78,3 +79,47 @@ try {
 	
 }
 endsnippet
+
+snippet for "for loop (i=0; ..."
+for (${1:i} = ${2:0}; $1 != ${3:count}; ${4:++$1}) {
+	${VISUAL}$0
+}
+endsnippet
+
+snippet ford "for loop (int i=0; ..."
+for (${1:int} ${2:i} = ${3:0}; $2 != ${4:count}; ${5:++$2}) {
+	${VISUAL}$0
+}
+endsnippet
+
+snippet fori "iterator for loop"
+for (auto ${1:it} = std::begin(${2:container}), ${3:end} = std::end($2); $1 != $3; ${4:++$1}) {
+	${VISUAL}$0
+}
+endsnippet
+
+snippet forim "modifying iterator for loop"
+for (auto ${1:it} = std::begin(${2:container}); $1 != std::end($2); ${4:++$1}) {
+	${VISUAL}$0
+}
+endsnippet
+
+snippet forr "range-based for loop ( : )"
+for (${1:auto} ${2:i} : ${2:container}) {
+	${VISUAL}$0
+}
+endsnippet
+
+snippet tp "template <typename ...>"
+template <typename ${1:T}>
+endsnippet
+
+snippet vec "std::vector<T> v;"
+std::vector<${1:type}> $0;
+endsnippet
+
+snippet map "std::map<T> m;"
+std::map<${1:key}, ${2:value}> $0;
+endsnippet
+
+# vim:ft=snippets

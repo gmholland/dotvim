@@ -29,7 +29,7 @@ ${VISUAL}$0
 #endif /* $1 */
 endsnippet
 
-snippet externc "extern C"
+snippet extern "extern C"
 #ifdef __cplusplus
 extern "C" {
 #endif
@@ -41,10 +41,33 @@ ${VISUAL}$0
 #endif
 endsnippet
 
-snippet include< "System include"
-#include <${1:header}>
+snippet for "for (i=0; ..."
+for (${1:i} = ${2:0}; $1 < ${3:count}; ${4:$1++}) {
+	${VISUAL}$0
+}
 endsnippet
 
-snippet include" "User include" b
-#include "${1:header}"
+snippet ford "for (int i=0; ..."
+for (${1:int} ${2:i} = ${3:0}; $2 < ${4:count}; ${5:$2++}) {
+	${VISUAL}$0
+}
 endsnippet
+
+snippet fun "function definition" b
+${1:void} ${2:function_name}(${3:void})
+{
+	${VISUAL}$0
+}
+endsnippet
+
+snippet fund "function declaration" b
+${1:void} ${2:function_name}(${3:void});
+endsnippet
+
+snippet doc "block documentation" b
+/**
+ * ${1:brief}
+ */
+endsnippet
+
+# vim:ft=snippets

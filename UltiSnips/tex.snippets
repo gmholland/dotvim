@@ -16,11 +16,11 @@ snippet item "Itemize" b
 \end{itemize}
 endsnippet
 
-snippet chapter "Chapter" b
+snippet "ch(apter)?" "Chapter" br
 \chapter{${1:chapter name}}%
 \label{chap:${2:${1/\\\w+\{(.*?)\}|\\(.)|(\w+)|([^\w\\]+)/(?4:_:\L$1$2$3\E)/ga}}}
 
-\glsresetall
+${3:\glsresetall}
 
 $0
 endsnippet
@@ -34,7 +34,7 @@ snippet fig "Figure environment" b
 \end{figure}
 endsnippet
 
-snippet table "Table environment" b
+snippet tab "Table environment" b
 \begin{table}[${1:htpb}]
 	\centering
 	\caption{${2:caption}}
@@ -58,7 +58,7 @@ ${2:${VISUAL:code}}
 $0
 endsnippet
 
-snippet glossary "glossary entry" b
+snippet "glo(ssary)?" "glossary entry" br
 \newglossaryentry{${1:name}}
 {
 	name={$1},
@@ -68,6 +68,8 @@ snippet glossary "glossary entry" b
 $0
 endsnippet
 
-snippet acronym "acronym entry" b
+snippet "acr(onym)?" "acronym entry" br
 \newacronym{${1:abbrev}}{${2:`!p snip.rv = t[1].upper()`}}{${3:long}}
 endsnippet
+
+# vim:ft=snippets

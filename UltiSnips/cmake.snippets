@@ -1,0 +1,52 @@
+snippet init
+cmake_minimum_required(VERSION ${1:`cmake --version | awk 'NR==1{print $3}'`} FATAL_ERROR)
+
+set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
+
+project(${2:project_name} LANGUAGES ${3:CXX})
+
+set(CMAKE_$3_STANDARD ${4:14})
+set(CMAKE_$3_FLAGS "${CMAKE_$3_FLAGS} -Wall -Wextra")
+
+$0
+endsnippet
+
+snippet min "cmake_minimum_required" b
+cmake_minimum_required(VERSION ${1:`cmake --version | awk 'NR==1{print $3}'`} FATAL_ERROR)
+endsnippet
+
+snippet proj "project" b
+project(${1:project_name} LANGUAGES ${2:CXX})
+endsnippet
+
+snippet find "find_package" b
+find_package(${1:pkg} ${2:REQUIRED})
+endsnippet
+
+snippet subdir "add_subdirectory" b
+add_subdirectory(${1:subdir})
+endsnippet
+
+snippet lib "add_library" b
+add_library(${1:lib} ${2:SHARED} ${3:srcs})
+endsnippet
+
+snippet link "target_link_libraries" b
+target_link_libraries(${1:target} ${2:PUBLIC} ${3:libs})
+endsnippet
+
+snippet exe "add_executable" b
+add_executable(${1:exe} ${2:srcs})
+endsnippet
+
+snippet buildtype "default build type" b
+# Set a default build type if none was specified
+if(NOT CMAKE_BUILD_TYPE AND NOT CMAKE_CONFIGURATION_TYPES)
+	set(CMAKE_BUILD_TYPE "${1:RelWithDebInfo}" CACHE STRING "Build type" FORCE)
+endif()
+message(STATUS "Build type: ${CMAKE_BUILD_TYPE}")
+
+$0
+endsnippet
+
+# vim:ft=snippets

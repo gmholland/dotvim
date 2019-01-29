@@ -39,6 +39,10 @@ snippet exe "add_executable" b
 add_executable(${1:exe} ${2:srcs})
 endsnippet
 
+snippet prop "set_target_properties" b
+set_target_properties(${1:target} PROPERTIES ${2:property} ${3:value})
+endsnippet
+
 snippet buildtype "default build type" b
 # Set a default build type if none was specified
 if(NOT CMAKE_BUILD_TYPE AND NOT CMAKE_CONFIGURATION_TYPES)

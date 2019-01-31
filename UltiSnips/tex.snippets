@@ -16,6 +16,14 @@ snippet item "Itemize" b
 \end{itemize}
 endsnippet
 
+snippet tt "Monospace"
+\texttt{${0:${VISUAL:text}}}
+endsnippet
+
+snippet em "Emphasis"
+\emph{${0:${VISUAL:text}}}
+endsnippet
+
 snippet "ch(apter)?" "Chapter" br
 \chapter{${1:chapter name}}%
 \label{chap:${2:${1/\\\w+\{(.*?)\}|\\(.)|(\w+)|([^\w\\]+)/(?4:_:\L$1$2$3\E)/ga}}}

@@ -36,9 +36,9 @@ endsnippet
 snippet fig "Figure environment" b
 \begin{figure}[${2:htpb}]
 	\centering
-	\includegraphics[width=${3:0.8}\linewidth]{${4:name.ext}}
-	\caption{${4/(\w+)\.\w+/\u$1/}$0}
-	\label{fig:${4/(\w+)\.\w+/$1/}}
+	\includegraphics{${3:name.ext}}
+	\caption{${3/(\w+)\.\w+/\u$1/}$0}
+	\label{fig:${3/(\w+)\.\w+/$1/}}
 \end{figure}
 endsnippet
 
@@ -66,7 +66,7 @@ ${2:${VISUAL:code}}
 $0
 endsnippet
 
-snippet "glo(ssary)?" "glossary entry" br
+snippet glo "Glossary entry" b
 \newglossaryentry{${1:name}}
 {
 	name={$1},
@@ -76,8 +76,12 @@ snippet "glo(ssary)?" "glossary entry" br
 $0
 endsnippet
 
-snippet "acr(onym)?" "acronym entry" br
+snippet acr "Acronym entry" b
 \newacronym{${1:abbrev}}{${2:`!p snip.rv = t[1].upper()`}}{${3:long}}
+endsnippet
+
+snippet gls "Glossary reference"
+\gls{${0:${VISUAL:text}}}
 endsnippet
 
 # vim:ft=snippets

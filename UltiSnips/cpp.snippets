@@ -64,6 +64,14 @@ private:
 };
 endsnippet
 
+snippet except "exception class"
+class ${1:Error} : public std::runtime_error
+{
+public:
+	using std::runtime_error::runtime_error;
+};
+endsnippet
+
 snippet ns "namespace" b
 namespace ${1:name} {
 
@@ -74,7 +82,7 @@ endsnippet
 
 snippet try "try catch block"
 try {
-	$0
+	${VISUAL}$0
 } catch (const ${1:std::exception}& ${2:e}) {
 	
 }

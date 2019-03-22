@@ -130,4 +130,8 @@ snippet map "std::map<T> m;"
 std::map<${1:key}, ${2:value}> $0;
 endsnippet
 
+snippet ostream "operator<<(std::ostream&, const T&)" w
+std::ostream& operator<<(std::ostream& os, const ${1:T}& ${2:${1/\w+/\l$0/}});
+endsnippet
+
 # vim:ft=snippets

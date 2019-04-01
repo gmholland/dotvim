@@ -123,12 +123,20 @@ snippet tp "template <typename ...>"
 template <typename ${1:T}>
 endsnippet
 
-snippet vec "std::vector<T> v;"
-std::vector<${1:type}> $0;
+snippet vec "std::vector<T>"
+std::vector<${1:type}> $0
 endsnippet
 
-snippet map "std::map<T> m;"
-std::map<${1:key}, ${2:value}> $0;
+snippet map "std::map<T>"
+std::map<${1:key}, ${2:value}> $0
+endsnippet
+
+snippet uniq "std::unique_ptr<T>"
+std::unique_ptr<${1:type}> $0
+endsnippet
+
+snippet shared "std::shared_ptr<T>"
+std::shared_ptr<${1:type}> $0
 endsnippet
 
 snippet ostream "operator<<(std::ostream&, const T&)" w

@@ -22,7 +22,6 @@ int main()
 endsnippet
 
 snippet once "Header guard" b
-#pragma once
 #ifndef ${1:`!p
 if not snip.c:
 	import string
@@ -114,7 +113,7 @@ for (auto ${1:it} = std::begin(${2:container}); $1 != std::end($2); ${4:++$1}) {
 endsnippet
 
 snippet forr "range-based for loop ( : )"
-for (${1:auto} ${2:i} : ${2:container}) {
+for (${1:auto} ${2:i} : ${3:container}) {
 	${VISUAL}$0
 }
 endsnippet

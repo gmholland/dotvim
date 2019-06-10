@@ -3,7 +3,7 @@ import os.path as p
 DIR_OF_THIS_SCRIPT = p.abspath(p.dirname(__file__ ))
 
 # Set this to the root of the Linux source tree
-LINUX_SRC_DIR = '/home/gmh7/RCL/fuse/dfuse/buildroot/output/build/linux-xilinx-v2016.4'
+LINUX_SRC_DIR = '/home/gmh7/RCL/dfuse/buildroot/output/build/linux-xilinx-v2016.4'
 
 # Default compiler flags
 flags = [

@@ -28,4 +28,12 @@ function! statusline#fenc() abort
   endif
 endfunction
 
+function! statusline#fileformat() abort
+  if strlen(&fileformat) && &fileformat !=# 'unix'
+    return '[' . &fileformat . '] '
+  else
+    return ''
+  endif
+endfunction
+
 " vim:set ft=vim et ts=2 sw=2 sts=2:

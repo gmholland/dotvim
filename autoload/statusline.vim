@@ -14,8 +14,11 @@ function! statusline#fileprefix() abort
   let l:basename=expand('%:h')
   if l:basename ==# '' || l:basename ==# '.'
     return ''
+  elseif has('modify_fname')
+    " Make sure we show $HOME as ~ (using fnamemodify)
+    return substitute(fnamemodify(l:basename, ':~:.'), '/$', '', '') . '/'
   else
-    " Make sure we show $HOME as ~.
+    " Make sure we show $HOME as ~ (fallback implementation)
     return substitute(l:basename . '/', '\C^' . $HOME, '~', '')
   endif
 endfunction

@@ -1,15 +1,83 @@
-snippet "b(egin)?" "begin{} / end{}" br
-\begin{${1:something}}
+snippet init "Basic template" b
+\documentclass{${1:article}}
+
+\begin{document}
+	$0
+\end{document}
+endsnippet
+
+snippet package "Package" b
+\usepackage[${1:options}]{${2:package}}$0
+endsnippet
+
+snippet beg "begin{} / end{}" b
+\begin{$1}
 	${0:${VISUAL}}
 \end{$1}
 endsnippet
 
-snippet init
-\documentclass{${1:article}}
+# label defaults to chapter title converted to lowercase with spaces replaced
+# with underscores
+snippet chapter "Chapter" b
+\chapter{${1:chapter title}}%
+\label{chap:${2:${1/\\\w+\{(.*?)\}|\\(.)|(\w+)|([^\w\\]+)/(?4:_:\L$1$2$3\E)/ga}}}
 
-\begin{document}
+${3:\glsresetall}
+
 $0
-\end{document}
+endsnippet
+
+# caption defaults to filename with uppercase first letter and extension removed
+# label defaults to filename with extension removed
+snippet fig "Figure environment" b
+\begin{figure}[${2:htpb}]
+	\centering
+	\includegraphics{${3:name.ext}}
+	\caption{${3/(\w+)\.\w+/\u$1/}$0}
+	\label{fig:${3/(\w+)\.\w+/$1/}}
+\end{figure}
+endsnippet
+
+snippet table "Table environment" b
+\begin{table}[${1:htpb}]
+	\centering
+	\caption{${2:caption}}
+	\label{tab:${3:label}}
+	\begin{tabular}{${5:c}}
+	$0${5/((?<=.)c|l|r)|./(?1: & )/g}
+	\end{tabular}
+\end{table}
+endsnippet
+
+snippet "src( (\S+))?" "Source code listing" br
+\begin{listing}
+	\begin{minted}[frame=lines]{${1:`!p
+snip.rv = match.group(3) if match.group(2) is not None else "language"`}}
+${2:${VISUAL:code}}
+	\end{minted}
+	\caption{${3:caption name}}
+	\label{lst:${4:${3/\\\w+\{(.*?)\}|\\(.)|(\w+)|([^\w\\]+)/(?4:_:\L$1$2$3\E)/ga}}}
+\end{listing}
+
+$0
+endsnippet
+
+snippet gle "Glossary entry" b
+\newglossaryentry{${1:name}}
+{
+	name={$1},
+	description={${2:description}}
+}
+
+$0
+endsnippet
+
+snippet acr "Acronym entry" b
+\newacronym{${1:abbrev}}{${2:`!p snip.rv = t[1].upper()`}}{${3:long}}
+endsnippet
+
+snippet gls "Glossary reference" w
+\gls{${0:${VISUAL:text}}}
 endsnippet
 
 snippet enum "Enumerate" b
@@ -24,6 +92,12 @@ snippet item "Itemize" b
 \end{itemize}
 endsnippet
 
+snippet desc "Description" b
+\begin{description}
+	\item[$1] $0
+\end{description}
+endsnippet
+
 snippet tt "Monospace"
 \texttt{${0:${VISUAL:text}}}
 endsnippet
@@ -32,64 +106,19 @@ snippet em "Emphasis"
 \emph{${0:${VISUAL:text}}}
 endsnippet
 
-snippet "ch(apter)?" "Chapter" br
-\chapter{${1:chapter name}}%
-\label{chap:${2:${1/\\\w+\{(.*?)\}|\\(.)|(\w+)|([^\w\\]+)/(?4:_:\L$1$2$3\E)/ga}}}
-
-${3:\glsresetall}
-
-$0
+snippet ma "Math" w
+$${1}$`!p
+if t[2] and t[2][0] not in [',', '.', '?', '-', ' ']:
+	snip.rv = ' '
+else:
+	snip.rv = ''
+`$2
 endsnippet
 
-snippet fig "Figure environment" b
-\begin{figure}[${2:htpb}]
-	\centering
-	\includegraphics{${3:name.ext}}
-	\caption{${3/(\w+)\.\w+/\u$1/}$0}
-	\label{fig:${3/(\w+)\.\w+/$1/}}
-\end{figure}
-endsnippet
-
-snippet tab "Table environment" b
-\begin{table}[${1:htpb}]
-	\centering
-	\caption{${2:caption}}
-	\label{tab:${3:label}}
-	\begin{${4:t}${4/(t)$|(a)$|(.*)/(?1:abular)(?2:rray)/}}{${5:c}}
-	$0${5/(?<=.)(c|l|r)|./(?1: & )/g}
-	\end{$4${4/(t)$|(a)$|(.*)/(?1:abular)(?2:rray)/}}
-\end{table}
-endsnippet
-
-snippet "mint(ed)?( (\S+))?" "Minted code typeset" br
-\begin{listing}
-\begin{minted}[linenos,numbersep=5pt,frame=lines,framesep=2mm]{${1:`!p
-snip.rv = match.group(3) if match.group(2) is not None else "language"`}}
-${2:${VISUAL:code}}
-\end{minted}
-\caption{${3:caption name}}
-\label{lst:${4:${3/\\\w+\{(.*?)\}|\\(.)|(\w+)|([^\w\\]+)/(?4:_:\L$1$2$3\E)/ga}}}
-\end{listing}
-
-$0
-endsnippet
-
-snippet glo "Glossary entry" b
-\newglossaryentry{${1:name}}
-{
-	name={$1},
-	description={${2:description}}
-}
-
-$0
-endsnippet
-
-snippet acr "Acronym entry" b
-\newacronym{${1:abbrev}}{${2:`!p snip.rv = t[1].upper()`}}{${3:long}}
-endsnippet
-
-snippet gls "Glossary reference"
-\gls{${0:${VISUAL:text}}}
+snippet dm "Math" w
+\[
+${1:${VISUAL}}
+.\] $0
 endsnippet
 
 # vim:ft=snippets

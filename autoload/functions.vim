@@ -11,6 +11,10 @@ function! functions#plaintext() abort
   nnoremap <buffer> j gj
   nnoremap <buffer> k gk
 
+  " Use <ctrl-l> to correct previous spelling mistake using first option
+  " <c-g>u parts allow easy undo
+  inoremap <C-l> <c-g>u<Esc>[s1z=`]a<c-g>u
+
   " Ideally would keep 'list' set, and restrict 'listchars' to just show
   " whitespace errors, but 'listchars' is global and I don't want to go through
   " the hassle of saving and restoring.

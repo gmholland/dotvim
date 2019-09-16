@@ -13,13 +13,4 @@ let g:CommandTWildIgnore.=',*/.git'
 let g:CommandTWildIgnore.=',*/.hg'
 " - }}}
 
-" - Mappings - {{{
-nmap <unique> <Leader>c <Plug>(CommandTCommand)
-nmap <unique> <Leader>h <Plug>(CommandTHelp)
-nmap <unique> <LocalLeader>h <Plug>(CommandTHistory)
-nmap <unique> <LocalLeader>l <Plug>(CommandTLine)
-nmap <unique> <LocalLeader>s <Plug>(CommandTSearch)
-nmap <unique> <LocalLeader>t <Plug>(CommandTTag)
-" - }}}
-
 " vim:set ft=vim et sw=2:

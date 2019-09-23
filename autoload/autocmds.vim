@@ -1,4 +1,4 @@
-let g:ColorColumnBlacklist = ['diff', 'undotree', 'nerdtree', 'qf']
+let g:ColorColumnBlacklist = ['diff', 'undotree', 'nerdtree', 'qf', 'tagbar']
 let g:CursorlineBlacklist = ['command-t']
 
 " FIXME this function sometimes fails on files containing uncommon characters

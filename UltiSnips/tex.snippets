@@ -38,13 +38,13 @@ snippet fig "Figure environment" b
 \end{figure}
 endsnippet
 
-snippet table "Table environment" b
+snippet tab "Table environment" b
 \begin{table}[${1:htpb}]
 	\centering
 	\caption{${2:caption}}
 	\label{tab:${3:label}}
 	\begin{tabular}{${5:c}}
-	$0${5/((?<=.)c|l|r)|./(?1: & )/g}
+		$0${5/((?<=.)c|l|r)|./(?1: & )/g}
 	\end{tabular}
 \end{table}
 endsnippet
@@ -64,7 +64,7 @@ endsnippet
 
 snippet gle "Glossary entry" b
 \newglossaryentry{${1:name}}
-{
+{%
 	name={$1},
 	description={${2:description}}
 }
@@ -106,6 +106,12 @@ snippet em "Emphasis"
 \emph{${0:${VISUAL:text}}}
 endsnippet
 
+snippet eq "Equation" b
+\begin{equation} ${1:\label{eq:}}
+	${0:${VISUAL}}
+\end{equation}
+endsnippet
+
 snippet ma "Math" w
 $${1}$`!p
 if t[2] and t[2][0] not in [',', '.', '?', '-', ' ']:
@@ -117,8 +123,8 @@ endsnippet
 
 snippet dm "Math" w
 \[
-${1:${VISUAL}}
-.\] $0
+	${0:${VISUAL}}
+\]
 endsnippet
 
 # vim:ft=snippets

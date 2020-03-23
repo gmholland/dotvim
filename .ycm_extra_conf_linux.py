@@ -3,7 +3,7 @@ import os.path as p
 DIR_OF_THIS_SCRIPT = p.abspath(p.dirname(__file__ ))
 
 # Set this to the root of the Linux source tree
-LINUX_SRC_DIR = '/home/gmh7/RCL/dfuse/buildroot/output/build/linux-xilinx-v2016.4'
+LINUX_SRC_DIR = '/home/gmh7/RCL/cfuse/buildroot/output/build/linux-xilinx-v2016.4'
 
 # Default compiler flags
 flags = [
@@ -23,7 +23,7 @@ flags = [
   # Kernel module related
   '-DMODULE',
   # ARM related
-  '-isystem', '/home/gmh7/RCL/dfuse/buildroot/output/host/opt/ext-toolchain/lib/gcc/arm-linux-gnueabihf/5.3.1/include',
+  '-isystem', '/home/gmh7/RCL/cfuse/buildroot/output/host/opt/ext-toolchain/lib/gcc/arm-linux-gnueabihf/5.3.1/include',
   '-D__LINUX_ARM_ARCH__=7',
   '-target', 'armv7a-unknown-linux-gnueabihf',
   # Project specific

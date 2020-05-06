@@ -57,7 +57,7 @@ combinatorial
 Zynq
 Xilinx's
 SDAccel
-DFUSE
+CFUSE
 DDR
 VHDL
 Verilog
@@ -81,3 +81,7 @@ LLVM
 ZC706
 enqueue
 CPU/!
+filesystem
+metadata
+floorplanning
+daughtercards

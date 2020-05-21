@@ -203,34 +203,38 @@ if !exists('g:loaded_matchit') && findfile('plugin/matchit.vim', &rtp) ==# ''
 endif
 " - }}}
 
-" - Backup and swap files - {{{
+" - Temporary files - {{{
+" Backup files
 if exists('$SUDO_USER')
-  set nobackup      " Don't create root owned files
-  set nowritebackup " Don't create root owned files
+  set nobackup                    " Don't create root owned files
+  set nowritebackup
 else
-  set backupdir=~/local/.vim/tmp/backup
-  set backupdir+=~/.vim/tmp/backup      " Keep backup files out of the way
+  set backupdir=~/.vim/tmp/backup " Keep backup files out of the way
   set backupdir+=.
 endif
 
+" Swap files
 if exists('$SUDO_USER')
-  " Don't create root owned files
-  set noswapfile
+  set noswapfile                  " Don't create root owned files
 else
-  " Keep swap files out of the way
-  set directory=~/local/.vim/tmp/swap//
-  set directory+=~/.vim/tmp/swap//      " Keep swap files out of the way
+  set directory=~/.vim/tmp/swap// " Keep swap files out of the way
   set directory+=.
 endif
-" - }}}
 
-" - Sessions - {{{
-if has('mksession')
-  if isdirectory('~/local/.vim/tmp')
-    set viewdir=~/local/.vim/tmp/view
+" Undo files
+if has('persistentundo')
+  if exists('$SUDO_USER')
+    set noundofile               " Don't create root owned files
   else
-    set viewdir=~/.vim/tmp/view " Override ~/.vim/view default
+    set undodir=~/.vim/tmp/undo  " Keep undo files out of the way
+    set undodir+=.
+    set undofile                 " Actualy use undo files
   endif
+endif
+
+" Session files
+if has('mksession')
+  set viewdir=~/.vim/tmp/view   " Override ~/.vim/view default
   set viewoptions=cursor,folds  " Save/restore just these (with `:{mk,load}view`)
 endif
 " - }}}

@@ -81,7 +81,11 @@ endif
 
 " Set gvim font to Source Code Pro Regular 10 pt
 if has('gui_running')
-  set guifont=Source\ Code\ Pro\ 10
+  if has('gui_gtk2')
+    set guifont=Source\ Code\ Pro\ 10
+  elseif has('gui_win32')
+    set guifont=Source_Code_Pro:h10
+  endif
 endif
 " - }}}
 

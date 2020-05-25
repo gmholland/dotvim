@@ -16,37 +16,37 @@ endif
 " Plugin Loading - {{{
 if &loadplugins
   if has('packages')
-    !packadd cmake-syntax
-    !packadd command-t
-    !packadd cscopemaps.vim
-    !packadd detectindent
-    !packadd FastFold
-    !packadd goyo.vim
-    !packadd linediff.vim
-    !packadd loupe
-    !packadd nerdtree
-    !packadd python-mode
-    !packadd syntastic
-    !packadd tagbar
-    !packadd tcomment_vim
-    !packadd ultisnips
-    !packadd vim-cmake-completion
-    !packadd vim-colors-solarized
-    !packadd vim-easydir
-    !packadd vim-edk-mhs
-    !packadd vim-eunuch
-    !packadd vim-fugitive
-    !packadd vim-markdown
-    !packadd vim-markdown-folding
-    !packadd vim-opencl
-    !packadd vim-repeat
-    !packadd vim-slime
-    !packadd vim-speeddating
-    !packadd vim-surround
-    !packadd vim-unimpaired
-    !packadd vimtex
-    !packadd YCM-Generator
-    !packadd YouCompleteMe
+    packadd! cmake-syntax
+    packadd! command-t
+    packadd! cscopemaps.vim
+    packadd! detectindent
+    packadd! FastFold
+    packadd! goyo.vim
+    packadd! linediff.vim
+    packadd! loupe
+    packadd! nerdtree
+    packadd! python-mode
+    packadd! syntastic
+    packadd! tagbar
+    packadd! tcomment_vim
+    packadd! ultisnips
+    packadd! vim-cmake-completion
+    packadd! vim-colors-solarized
+    packadd! vim-easydir
+    packadd! vim-edk-mhs
+    packadd! vim-eunuch
+    packadd! vim-fugitive
+    packadd! vim-markdown
+    packadd! vim-markdown-folding
+    packadd! vim-opencl
+    packadd! vim-repeat
+    packadd! vim-slime
+    packadd! vim-speeddating
+    packadd! vim-surround
+    packadd! vim-unimpaired
+    packadd! vimtex
+    packadd! YCM-Generator
+    packadd! YouCompleteMe
   else
     source $HOME/.vim/pack/bundle/opt/vim-pathogen/autoload/pathogen.vim
     call pathogen#infect('pack/bundle/opt/{}')

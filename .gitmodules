@@ -1,0 +1,96 @@
+[submodule "pack/bundle/opt/command-t"]
+	path = pack/bundle/opt/command-t
+	url = https://github.com/wincent/command-t.git
+[submodule "pack/bundle/opt/linediff.vim"]
+	path = pack/bundle/opt/linediff.vim
+	url = https://github.com/AndrewRadev/linediff.vim.git
+[submodule "pack/bundle/opt/loupe"]
+	path = pack/bundle/opt/loupe
+	url = https://github.com/wincent/loupe.git
+[submodule "pack/bundle/opt/nerdtree"]
+	path = pack/bundle/opt/nerdtree
+	url = https://github.com/scrooloose/nerdtree.git
+[submodule "pack/bundle/opt/tagbar"]
+	path = pack/bundle/opt/tagbar
+	url = https://github.com/majutsushi/tagbar.git
+[submodule "pack/bundle/opt/tcomment_vim"]
+	path = pack/bundle/opt/tcomment_vim
+	url = https://github.com/tomtom/tcomment_vim.git
+[submodule "pack/bundle/opt/vim-colors-solarized"]
+	path = pack/bundle/opt/vim-colors-solarized
+	url = https://github.com/gmholland/vim-colors-solarized.git
+[submodule "pack/bundle/opt/vim-eunuch"]
+	path = pack/bundle/opt/vim-eunuch
+	url = https://github.com/tpope/vim-eunuch.git
+[submodule "pack/bundle/opt/vim-fugitive"]
+	path = pack/bundle/opt/vim-fugitive
+	url = https://github.com/tpope/vim-fugitive.git
+[submodule "pack/bundle/opt/vim-opencl"]
+	path = pack/bundle/opt/vim-opencl
+	url = https://github.com/petRUShka/vim-opencl.git
+[submodule "pack/bundle/opt/vim-unimpaired"]
+	path = pack/bundle/opt/vim-unimpaired
+	url = https://github.com/tpope/vim-unimpaired.git
+[submodule "pack/bundle/opt/YCM-Generator"]
+	path = pack/bundle/opt/YCM-Generator
+	url = https://github.com/rdnetto/YCM-Generator.git
+[submodule "pack/bundle/opt/YouCompleteMe"]
+	path = pack/bundle/opt/YouCompleteMe
+	url = https://github.com/Valloric/YouCompleteMe.git
+[submodule "pack/bundle/opt/vim-edk-mhs"]
+	path = pack/bundle/opt/vim-edk-mhs
+	url = https://github.com/gmholland/vim-edk-mhs.git
+[submodule "pack/bundle/opt/ultisnips"]
+	path = pack/bundle/opt/ultisnips
+	url = https://github.com/SirVer/ultisnips.git
+[submodule "pack/bundle/opt/vimtex"]
+	path = pack/bundle/opt/vimtex
+	url = https://github.com/lervag/vimtex.git
+[submodule "pack/bundle/opt/cscopemaps.vim"]
+	path = pack/bundle/opt/cscopemaps.vim
+	url = https://github.com/steffanc/cscopemaps.vim
+[submodule "pack/bundle/opt/detectindent"]
+	path = pack/bundle/opt/detectindent
+	url = https://github.com/ciaranm/detectindent.git
+[submodule "pack/bundle/opt/vim-markdown"]
+	path = pack/bundle/opt/vim-markdown
+	url = https://github.com/tpope/vim-markdown.git
+[submodule "pack/bundle/opt/vim-surround"]
+	path = pack/bundle/opt/vim-surround
+	url = https://github.com/tpope/vim-surround.git
+[submodule "pack/bundle/opt/vim-repeat"]
+	path = pack/bundle/opt/vim-repeat
+	url = https://github.com/tpope/vim-repeat.git
+[submodule "pack/bundle/opt/vim-markdown-folding"]
+	path = pack/bundle/opt/vim-markdown-folding
+	url = https://github.com/nelstrom/vim-markdown-folding.git
+[submodule "pack/bundle/opt/FastFold"]
+	path = pack/bundle/opt/FastFold
+	url = https://github.com/Konfekt/FastFold.git
+[submodule "pack/bundle/opt/python-mode"]
+	path = pack/bundle/opt/python-mode
+	url = https://github.com/python-mode/python-mode.git
+[submodule "pack/bundle/opt/cmake-syntax"]
+	path = pack/bundle/opt/cmake-syntax
+	url = https://github.com/pboettch/vim-cmake-syntax
+[submodule "pack/bundle/opt/syntastic"]
+	path = pack/bundle/opt/syntastic
+	url = https://github.com/vim-syntastic/syntastic
+[submodule "pack/bundle/opt/vim-slime"]
+	path = pack/bundle/opt/vim-slime
+	url = https://github.com/jpalardy/vim-slime.git
+[submodule "pack/bundle/opt/vim-speeddating"]
+	path = pack/bundle/opt/vim-speeddating
+	url = https://github.com/tpope/vim-speeddating.git
+[submodule "pack/bundle/opt/vim-easydir"]
+	path = pack/bundle/opt/vim-easydir
+	url = https://github.com/duggiefresh/vim-easydir.git
+[submodule "pack/bundle/opt/goyo.vim"]
+	path = pack/bundle/opt/goyo.vim
+	url = https://github.com/junegunn/goyo.vim.git
+[submodule "pack/bundle/opt/vim-cmake-completion"]
+	path = pack/bundle/opt/vim-cmake-completion
+	url = https://github.com/lanza/vim-cmake-completion
+[submodule "pack/bundle/opt/vim-pathogen"]
+	path = pack/bundle/opt/vim-pathogen
+	url = https://github.com/tpope/vim-pathogen.git

@@ -9,15 +9,50 @@ scriptencoding utf-8
 " - Use a better status line for 'special' windows (taglist, quickfix etc.)
 " - Fix modelines
 
-" Disabled plugins
-let g:pathogen_blacklist = []
-
 if filereadable(expand("~/local/.vimrc"))
   source ~/local/.vimrc
 endif
 
-" Setup plugins with pathogen
-execute pathogen#infect()
+" Plugin Loading - {{{
+if &loadplugins
+  if has('packages')
+    !packadd cmake-syntax
+    !packadd command-t
+    !packadd cscopemaps.vim
+    !packadd detectindent
+    !packadd FastFold
+    !packadd goyo.vim
+    !packadd linediff.vim
+    !packadd loupe
+    !packadd nerdtree
+    !packadd python-mode
+    !packadd syntastic
+    !packadd tagbar
+    !packadd tcomment_vim
+    !packadd ultisnips
+    !packadd vim-cmake-completion
+    !packadd vim-colors-solarized
+    !packadd vim-easydir
+    !packadd vim-edk-mhs
+    !packadd vim-eunuch
+    !packadd vim-fugitive
+    !packadd vim-markdown
+    !packadd vim-markdown-folding
+    !packadd vim-opencl
+    !packadd vim-repeat
+    !packadd vim-slime
+    !packadd vim-speeddating
+    !packadd vim-surround
+    !packadd vim-unimpaired
+    !packadd vimtex
+    !packadd YCM-Generator
+    !packadd YouCompleteMe
+  else
+    source $HOME/.vim/pack/bundle/opt/vim-pathogen/autoload/pathogen.vim
+    call pathogen#infect('pack/bundle/opt/{}')
+  endif
+endif
+" - }}}
 
 " - Indentation and Formatting - {{{
 " Use filetype plugins and indentation
@@ -461,7 +496,7 @@ command! -nargs=* Wrap set wrap linebreak nolist
 " -- }}}
 " - }}}
 
-" - Plugins - {{{
+" - Plugin Settings - {{{
 " -- NERDTree -- {{{
 " Would be useful mappings, but they interfere with my default window movement
 " bindings (<C-j> and <C-k>).

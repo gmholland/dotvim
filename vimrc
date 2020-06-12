@@ -115,7 +115,12 @@ set listchars+=trail:•      " BULLET (U+2022, UTF-8: E2 80 A2)
 
 if has('linebreak')
   set linebreak             " Wrap long lines at characters in 'breakat' setting
-  let &showbreak='↳ '       " Line continuation character - DOWNWARDS ARROW WITH TIP RIGHTWARDS (U+21B3, UTF-8: E2 86 B3)
+  if has('win32')
+    " Source Code Pro on Windows doesn't have all the unicode arrows
+    let &showbreak='↘ '     " Line continuation character - SOUTH EAST ARROW (U+2198, UTF-8: E2 86 98)
+  else
+    let &showbreak='↳ '     " Line continuation character - DOWNWARDS ARROW WITH TIP RIGHTWARDS (U+21B3, UTF-8: E2 86 B3)
+  endif
 endif
 
 " Set gvim font to Source Code Pro Regular 10 pt

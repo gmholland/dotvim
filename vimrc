@@ -131,15 +131,6 @@ if has('linebreak')
     let &showbreak='↳ '     " Line continuation character - DOWNWARDS ARROW WITH TIP RIGHTWARDS (U+21B3, UTF-8: E2 86 B3)
   endif
 endif
-
-" Set gvim font to Source Code Pro Regular 10 pt
-if has('gui_running')
-  if has('gui_gtk2')
-    set guifont=Source\ Code\ Pro\ 10
-  elseif has('gui_win32')
-    set guifont=Source_Code_Pro:h10
-  endif
-endif
 " - }}}
 
 " - Input - {{{

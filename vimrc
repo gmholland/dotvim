@@ -16,8 +16,14 @@ endif
 " Plugin Loading - {{{
 if &loadplugins
   if has('packages')
+    " Linux only plugins
+    if has('unix')
+      packadd! command-t
+      packadd! syntastic
+      packadd! vim-slime
+      packadd! YouCompleteMe
+    endif
     packadd! cmake-syntax
-    packadd! command-t
     packadd! cscopemaps.vim
     packadd! detectindent
     packadd! FastFold
@@ -26,7 +32,6 @@ if &loadplugins
     packadd! loupe
     packadd! nerdtree
     packadd! python-mode
-    packadd! syntastic
     packadd! tagbar
     packadd! tcomment_vim
     packadd! ultisnips
@@ -40,13 +45,11 @@ if &loadplugins
     packadd! vim-markdown-folding
     packadd! vim-opencl
     packadd! vim-repeat
-    packadd! vim-slime
     packadd! vim-speeddating
     packadd! vim-surround
     packadd! vim-unimpaired
     packadd! vimtex
     packadd! YCM-Generator
-    packadd! YouCompleteMe
   else
     source $HOME/.vim/pack/bundle/opt/vim-pathogen/autoload/pathogen.vim
     call pathogen#infect('pack/bundle/opt/{}')

@@ -91,6 +91,7 @@ set tabstop=4
 " - }}}
 
 " - Display - {{{
+set belloff=all     " Disable the bell and window flashing
 set winminheight=0  " Set minimum height of window to 0
 set scrolloff=3     " Keep at least 3 lines above and below the cursor
 set sidescrolloff=5 " Keep at least 5 columns to the right and left of the cursor

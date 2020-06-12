@@ -169,12 +169,6 @@ if has('autocmd')
       autocmd VimEnter * autocmd WinEnter * let w:created=1
       autocmd VimEnter * let w:created=1
 
-      " Dull background with colorcolumn
-      if exists('+colorcolumn')
-        autocmd BufEnter,FocusGained,VimEnter,WinEnter * if autocmds#should_colorcolumn() | let &l:colorcolumn='+' . join(range(1, 254), ',+') | endif
-        autocmd FocusLost,WinLeave * if autocmds#should_colorcolumn() | let &l:colorcolumn=join(range(1, 255), ',') | endif
-      endif
-
       " Turn off highlighting of current line for inactive windows
       autocmd InsertLeave,VimEnter,WinEnter * if autocmds#should_cursorline() | setlocal cursorline | endif
       autocmd InsertEnter,WinLeave * if autocmds#should_cursorline() | setlocal nocursorline | endif

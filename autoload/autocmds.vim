@@ -1,4 +1,3 @@
-let g:ColorColumnBlacklist = ['diff', 'undotree', 'nerdtree', 'qf', 'tagbar']
 let g:CursorlineBlacklist = ['command-t']
 
 " FIXME this function sometimes fails on files containing uncommon characters
@@ -8,10 +7,6 @@ function! autocmds#attempt_select_last_file() abort
   if l:previous != ''
     call search('\v<' . l:previous . '>')
   endif
-endfunction
-
-function! autocmds#should_colorcolumn() abort
-  return index(g:ColorColumnBlacklist, &filetype) == -1
 endfunction
 
 function! autocmds#should_cursorline() abort

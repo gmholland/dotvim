@@ -10,22 +10,9 @@ function! statusline#branch() abort
   return ""
 endfunction
 
-function! statusline#fileprefix() abort
-  let l:basename=expand('%:h')
-  if l:basename ==# '' || l:basename ==# '.'
-    return ''
-  elseif has('modify_fname')
-    " Make sure we show $HOME as ~ (using fnamemodify)
-    return substitute(fnamemodify(l:basename, ':~:.'), '/$', '', '') . '/'
-  else
-    " Make sure we show $HOME as ~ (fallback implementation)
-    return substitute(l:basename . '/', '\C^' . $HOME, '~', '')
-  endif
-endfunction
-
 function! statusline#fenc() abort
   if strlen(&fenc) && &fenc !=# 'utf-8'
-    return &fenc . ' '
+    return '[' . &fenc . ']'
   else
     return ''
   endif
@@ -33,10 +20,37 @@ endfunction
 
 function! statusline#fileformat() abort
   if strlen(&fileformat) && &fileformat !=# 'unix'
-    return '[' . &fileformat . '] '
+    return '[' . &fileformat . ']'
   else
     return ''
   endif
+endfunction
+
+function! statusline#position() abort
+  let l:pos= ' '
+  let l:column = virtcol('.')
+  let l:width = virtcol('$')
+  let l:line = line('.')
+  let l:height = line('$')
+
+  " Add padding to stop pos from changing too much as we move the cursor
+  let l:padding = strlen(l:height) - strlen(l:line)
+  if l:padding
+    let l:pos .= repeat(' ', l:padding)
+  endif
+
+  let l:pos .= l:line
+  let l:pos .= ' : '
+
+  " Add padding to stop pos from changing too much as we move the cursor.
+  if strlen(l:column) < 2
+    let l:pos .= ' '
+  endif
+
+  let l:pos.=l:column
+  let l:pos.=' '
+
+  return l:pos
 endfunction
 
 " vim:set ft=vim et ts=2 sw=2 sts=2:

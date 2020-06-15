@@ -206,8 +206,7 @@ if has('statusline')
   set statusline+=>                           " FIXME Powerline arrow
   set statusline+=\                           " Space
   set statusline+=%<                          " Truncation point, if not enough width available
-  set statusline+=%{statusline#fileprefix()}  " Relative path to file's directory
-  set statusline+=%t                          " Filename
+  set statusline+=%f                          " File path, relative to current directory
   set statusline+=\                           " Space
   set statusline+=%h                          " [help] if buffer is a help file
   set statusline+=%m                          " [+] if modified, [-] if not modifiable
@@ -215,13 +214,13 @@ if has('statusline')
 
   set statusline+=%=                          " Left right split
 
-  set statusline+=%{statusline#fenc()}        " File encoding if not UTF-8
-  set statusline+=%{statusline#fileformat()}  " File format if not unix
   set statusline+=%y                          " [filetype]
   set statusline+=\                           " Space
-  set statusline+=<                           " FIXME Powerline arrow
+  set statusline+=%{statusline#fenc()}        " File encoding if not UTF-8
+  set statusline+=%{statusline#fileformat()}  " File format if not unix
   set statusline+=\                           " Space
-  set statusline+=%-14.(%l\ :\ %c%)\          " Line number : Column number
+  set statusline+=<                           " FIXME Powerline arrow
+  set statusline+=%{statusline#position()}    " Line number : Column number (includes leading space)
   set statusline+=%3.p%%\                     " Percentage through file
 endif
 " -- }}}
